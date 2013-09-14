@@ -1,0 +1,24 @@
+#!/usr/bin/ruby
+
+# Preconfigurations
+require 'tabs2spaces'
+require 'optparse'
+
+options = {
+  :number => 2,
+  :pattern => "*.rb"
+}
+OptionParser.new do |opts|
+  opts.banner = "Usage: tabs2spaces.rb [options] DIRECTORY"
+
+  opts.on("-n", "--number [NUMBER]", Integer, "Number of spaces to remplace a tab (default: 2)") do |number|
+    options[:number] = number
+  end
+
+  opts.on("-p", "--pattern [PATTERN]", "Pattern of files to apply tabs2spaces (default: '*.rb')") do |pattern|
+    options[:pattern] = pattern
+  end
+end.parse!
+
+tabs2spaces = Tabs2spaces::Converter.new(ARGV[0], options)
+tabs2spaces.convert
