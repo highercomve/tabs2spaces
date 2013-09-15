@@ -1,6 +1,7 @@
-# Tabs2spaces
+Tabs2spaces
+===========
 
-TODO: Write a gem description
+Covert all tabs in spaces using the shell commands expand, can undo using unexpand shell command (convert spaces into tabs)
 
 ## Installation
 
@@ -18,7 +19,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Example of basic usage convert tabs to 2 spaces in all files .rb inside the actual folder  (./)
+
+	cd /ruby_project_folder
+
+	tabs2spaces
+
+Parameters 
+	
+	tabs2paces -n NUMBER -p "PATTERN" -i
+
+NUMBER: number of spaces to replace the tab by default is 2 (OPTIONAL)
+
+PATTERN: Pattern to determine the files by default is "*.rb", use "*.js" (OPTIONAL)
+
+INVERSED: -i parameter set the script to convert spaces into tabs using NUMBER y PATTERN 
+
+Sintaxis
+
+	tabs2paces [options] DIRECTORY
 
 ## Contributing
 
