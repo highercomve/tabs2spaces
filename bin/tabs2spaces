@@ -6,7 +6,8 @@ require 'optparse'
 
 options = {
   :number => 2,
-  :pattern => "*.rb"
+  :pattern => "*.rb",
+  :inversed => false
 }
 OptionParser.new do |opts|
   opts.banner = "Usage: tabs2spaces.rb [options] DIRECTORY"
@@ -17,6 +18,10 @@ OptionParser.new do |opts|
 
   opts.on("-p", "--pattern [PATTERN]", "Pattern of files to apply tabs2spaces (default: '*.rb')") do |pattern|
     options[:pattern] = pattern
+  end
+  
+  opts.on("-i", "--[no-]inversed", "Do the inverse process, convert spaces into tabs") do |inverse|
+    options[:inversed] = inverse
   end
 end.parse!
 

@@ -9,8 +9,13 @@ module Tabs2spaces
     end
 
     def file_expand(file)
-      puts "Expanding tabs on " + file
-      return `expand -t #{@options[:number]} -i #{file}` 
+      unless @options[:inversed]
+        puts "Expanding tabs on: " + file
+        return `expand -i -t #{@options[:number]} #{file}` 
+      else
+        puts "Unexpanding spaces on: " + file
+        return `unexpand --first-only -t #{@options[:number]} #{file}`
+      end
     end
 
     def file_write(file, data)
