@@ -39,6 +39,16 @@ Sintaxis
 
 	tabs2paces [options] DIRECTORY
 
+### switch between indentation schemes
+	
+if you want to convert all the files in a folder from indentation scheme.
+
+Example: If yours files are using 2 spaces indentation and you want to switch to 4 spaces indentation
+
+	tabs2spaces -n 2 --convert 4
+
+That will convert your 2 spaces indentation in 4 spaces indentation
+
 ## Contributing
 
 1. Fork it

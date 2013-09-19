@@ -11,6 +11,8 @@ options = {
 }
 OptionParser.new do |opts|
   opts.banner = "Usage: tabs2spaces.rb [options] DIRECTORY"
+  opts.separator ""
+  opts.separator "Optional configuration"
 
   opts.on("-n", "--number [NUMBER]", Integer, "Number of spaces to remplace a tab (default: 2)") do |number|
     options[:number] = number
@@ -22,6 +24,26 @@ OptionParser.new do |opts|
   
   opts.on("-i", "--[no-]inversed", "Do the inverse process, convert spaces into tabs") do |inverse|
     options[:inversed] = inverse
+  end
+
+  opts.separator ""
+  opts.separator "Options to convert between to spaces indentation schemes"
+
+  opts.on("--convert [NUMBER]", Integer, "Convert indentation scheme from -n to --convert") do |convertion|
+    options[:convertion] = convertion
+  end
+
+  opts.separator ""
+  opts.separator "Common Options"
+
+  opts.on_tail("-h", "--help", "Show help") do
+    puts opts
+    exit
+  end
+  
+  opts.on_tail("--version", "Show version") do
+    puts "Tabs2spaces" + Tabs2spaces::VERSION
+    exit
   end
 end.parse!
 
